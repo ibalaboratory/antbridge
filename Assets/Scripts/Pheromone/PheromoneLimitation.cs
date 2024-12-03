@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // フェロモン数のLimit
-public class PheromoneLimitation : MonoBehaviour
-{
-    private int count;
-    public bool flg = true;
-    public int limit = 500;
+public class PheromoneLimitation : MonoBehaviour {
+  private int count;
+  public bool flg = true;
+  public int limit = 500;
 
-    public string debugText = "No Data";
+  public string debugText = "No Data";
 
-    void FixedUpdate()
-    {
-        count = GameObject.FindGameObjectsWithTag("ColonyPheromone").Length + GameObject.FindGameObjectsWithTag("FeedPheromone").Length;
-        if (count > limit) flg = false;
-        else flg = true;
-        debugText = $"pheromone count = {count}";
-    }
+  void FixedUpdate() {
+    count = GameObject.FindGameObjectsWithTag("ColonyPheromone").Length +
+            GameObject.FindGameObjectsWithTag("FeedPheromone").Length;
+    if (count > limit)
+      flg = false;
+    else
+      flg = true;
+    debugText = $"pheromone count = {count}";
+  }
 }
